@@ -27,6 +27,7 @@ Experimented with Flair
 	- Experiment with existing APIs
 			- FLAIR: Tutorial see ./Notebooks/FLAIR/FLAIR Tutorial.ipynb
 			- BERT as a service 
+			
 	- Optimizing/Fine-tuning models:
 			- Optimize FLAIR embedding with KB newspaper data: ./Notebooks/FLAIR/FineTuneModel.ipynb
 
