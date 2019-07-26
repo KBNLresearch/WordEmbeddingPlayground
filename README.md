@@ -23,9 +23,10 @@ Experimented with Flair
 
 - Theory: Read Chapter 10 "Pre-trained Word Representation", in "Neural Network Methods for Natural Language Processing" by Yoav Goldberg
 
-- Focus on Deep Contextual Word Embedding (BERT/ELMo)
+- Focus on Deep Contextual Word Embedding (FLAIR/BERT/ELMo)
 	- Experiment with existing APIs
-			- FLAIR/BERT as a service 
-	- Apply for research
-	- Optimizing/fine-tuning models
+			- FLAIR: Tutorial see ./Notebooks/FLAIR/FLAIR Tutorial.ipynb
+			- BERT as a service 
+	- Optimizing/Fine-tuning models:
+			- Optimize FLAIR embedding with KB newspaper data: ./Notebooks/FLAIR/FineTuneModel.ipynb
 
