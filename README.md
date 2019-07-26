@@ -19,5 +19,13 @@ Experimented with Flair
 
 ## Updates 26 - 07
 
+- Skype with Melvin on possible collaboration
+
 - Theory: Read Chapter 10 "Pre-trained Word Representation", in "Neural Network Methods for Natural Language Processing" by Yoav Goldberg
+
+- Focus on Deep Contextual Word Embedding (BERT/ELMo)
+	- Experiment with existing APIs
+			- FLAIR/BERT as a service 
+	- Apply for research
+	- Optimizing/fine-tuning models
 
