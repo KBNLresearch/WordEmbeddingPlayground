@@ -31,3 +31,7 @@ Experimented with Flair
 	- Optimizing/Fine-tuning models:
 			- Optimize FLAIR embedding with KB newspaper data: ./Notebooks/FLAIR/FineTuneModel.ipynb
 
+## Updates 02 - 08
+
+Holiday.
+
