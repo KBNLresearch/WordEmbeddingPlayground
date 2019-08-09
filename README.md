@@ -35,3 +35,6 @@ Experimented with Flair
 
 Holiday.
 
+## Updates 09 - 08
+
+Theory: Stanford [CS224N  Lecture 13](https://www.youtube.com/watch?v=S-CspeZ8FHc&feature=youtu.be) – Contextual Word Embeddings
