@@ -43,8 +43,9 @@ Theory:
     
 Focussed on interactive lexicon expansion, i.e. generating a lexicon based on only a minimal number of seed words. Implemented two approaches:
 
-	- [SemAxis](https://github.com/kasparvonbeelen/KB-RiR/blob/master/Notebooks/LexiconExpansion/Interactive-Lexicon-Expansion-SemAxis.ipynb), generates a male-female dimension based on user input. Resulted in a list of 636 "female" words, which can be found [here](https://github.com/kasparvonbeelen/KB-RiR/blob/master/Notebooks/LexiconExpansion/result/female_lexicon.txt). 
+- [SemAxis](https://github.com/kasparvonbeelen/KB-RiR/blob/master/Notebooks/LexiconExpansion/Interactive-Lexicon-Expansion-SemAxis.ipynb), generates a male-female dimension based on user input. Resulted in a list of 636 "female" words, which can be found [here](https://github.com/kasparvonbeelen/KB-RiR/blob/master/Notebooks/LexiconExpansion/result/female_lexicon.txt). 
 			- To do: ensure maximum recall (i.e. are we not missing relevant axis); avoid being stuck in one latent dimension (i.e. female names)
 				
 - [Active Learning](https://github.com/kasparvonbeelen/KB-RiR/blob/master/Notebooks/LexiconExpansion/Interactive-Lexicon-Expansion-ActiveLearning.ipynb): Uses an active learning pipeline to train a Linear Support Vector Machines that trains a model to classify words as "male" or "female". The confidence for each word is taken as the "gender score"
+
 			- To do: works less than SemAxis. Create at test set to evaluate performance, and determine the optimal hyperparameters of the model.
