@@ -50,3 +50,27 @@ Focussed on interactive lexicon expansion, i.e. generating a lexicon based on on
 - [Active Learning](https://github.com/kasparvonbeelen/KB-RiR/blob/master/Notebooks/LexiconExpansion/Interactive-Lexicon-Expansion-ActiveLearning.ipynb): Uses an active learning pipeline to train a Linear Support Vector Machines that trains a model to classify words as "male" or "female". The confidence for each word is taken as the "gender score"
 
 	- To do: works less than SemAxis. Create at test set to evaluate performance, and determine the optimal hyperparameters of the model.
+	
+- What happens if we subtract the vector of "children" from the "women". We end up here:
+`[('meesteres', 0.5029301047325134),`
+ `('doorl', 0.4935253858566284),`
+ `('buurvrouw', 0.49145278334617615),`
+ `('stiefmoeder', 0.4887046813964844),`
+ `('betoovering', 0.48440021276474),`
+ `('vasallen', 0.47766774892807007),`
+ `('maitresse', 0.47253796458244324),`
+ `('stoute', 0.47128427028656006),`
+ `('minnares', 0.46352386474609375),`
+` ('eminentie', 0.4629545211791992)]`
+
+## Update 16 - 09
+
+Theory:
+	- gender stereotypes
+	
+Explore Lexicon Expansion for measuring bias 
+	- gather historical words for stereotypical attributes
+	- apply lexicon expansion to FastText
+	
+Explore contextual models for measuring bias
+	- Finetune ELMo/FLAIR?
