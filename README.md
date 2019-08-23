@@ -66,7 +66,7 @@ Focussed on interactive lexicon expansion, i.e. generating a lexicon based on on
 ## Update 16 - 08
 
 Theory:
-- Started to compile historical literature on gender stereotypes. See [list](Literatuur.txt)
+- Started to compile historical literature on gender stereotypes. See [list](Literatuur.md)
 	
 Created list of newspapers to include in dataset. Criteria
 - Newspaper runs for more than ten years
