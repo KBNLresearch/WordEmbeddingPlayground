@@ -73,6 +73,7 @@ Created list of newspapers to include in dataset. Criteria
 - Is a Dutch national or local newspaper (i.e. excluding the Dutch Indies/Indonesia, Suriname etc.)
 - Is a newspaper (exluding periodical such as periodicals that serve as organs for specific institutions)
 - Title of the newspaper is Dutch
+Final list can be found [here](./rescources/Lijst_kranten_delpher_10jaar.xlsx)
 	
 Lexicon Expansion:
 
