@@ -64,8 +64,6 @@ Focussed on interactive lexicon expansion, i.e. generating a lexicon based on on
 ` ('eminentie', 0.4629545211791992)]`
 
 ## Update 16 - 08
-
-
 ### Theory
 
 - Started to compile historical literature on gender stereotypes. See [list](Literatuur.md)
@@ -78,7 +76,7 @@ Criteria
 - Is a newspaper (exluding periodical such as periodicals that serve as organs for specific institutions)
 - Title of the newspaper is Dutch
 
-Final list can be found [here](./rescources/Lijst_kranten_delpher_10jaar.xlsx)
+Final list can be found [here](./resources/Lijst_kranten_delpher_10jaar.xlsx)
 	
 ### Lexicon Expansion:
 
