@@ -63,7 +63,7 @@ Focussed on interactive lexicon expansion, i.e. generating a lexicon based on on
  `('minnares', 0.46352386474609375),`
 ` ('eminentie', 0.4629545211791992)]`
 
-## Update 16 - 09
+## Update 16 - 08
 
 Theory:
 	- Started to compile literature on historical gender stereotypes.
