@@ -8,6 +8,8 @@ Mineke Bosch,Domesticity, Pillarization and Gender. Historical Explanations for 
 
 Mineke Bosch, 1001 Vrouwen in perspectief. Traditie en verandering van het biografische woordenboek in Nederland en elders. [link](https://www.bmgn-lchr.nl/articles/abstract/10.18352/bmgn-lchr.9443/)
 
+Jeroen J.H. Dekker, Vrouw en opvoeding sinds de late negentiende eeuw. Het bijzondere van de Nederlandse casus. [link](https://www.bmgn-lchr.nl/articles/abstract/10.18352/bmgn-lchr.10041/)
+
 Stefan Dudink, Multipurpose Masculinities: Gender and Power in Low Countries Histories of Masculinity. [link](https://www.bmgn-lchr.nl/articles/abstract/10.18352/bmgn-lchr.1562/)
 
 Leen Dorsman, Strijken of niet strijken: That’s the Question. [link](https://www.bmgn-lchr.nl/articles/abstract/10.18352/bmgn-lchr.8155/)

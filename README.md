@@ -80,7 +80,7 @@ Final list can be found [here](./resources/Lijst_kranten_delpher_10jaar.xlsx)
 	
 ### Lexicon Expansion:
 
-- Extended the lexicon expansion to make it more interactive. A user can select words, and travel the vector space along this dimension. The goal is to generate a comprehensive list of words related to a concept (i.e. "women"). This helped so far to distinguish distinctive categories of "women" words (family related, professional and artistic nouns)
+- Extended the lexicon expansion to make it more interactive. A user can select words, and travel the vector space along this dimension. The goal is to generate a comprehensive list of words related to a concept (i.e. "women"). This helped so far to distinguish distinctive categories of "women"	 words (family related, professional and artistic nouns)
 	
 	- Visualized the process and results of the lexicon expansion.
 	
