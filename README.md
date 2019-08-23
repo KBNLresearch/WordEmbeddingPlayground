@@ -66,11 +66,18 @@ Focussed on interactive lexicon expansion, i.e. generating a lexicon based on on
 ## Update 16 - 09
 
 Theory:
-	- gender stereotypes
+	- Started to compile literature on historical gender stereotypes.
 	
-Explore Lexicon Expansion for measuring bias 
-	- gather historical words for stereotypical attributes
-	- apply lexicon expansion to FastText
+Created list of newspapers to include in dataset. Criteria
+	- Newspaper runs for more than ten years
+	- Is a Dutch national or local newspaper (i.e. excluding the Dutch Indies/Indonesia, Suriname etc.)
+	- Is a newspaper (exluding periodical such as periodicals that serve as organs for specific institutions)
+	- Title of the newspaper is Dutch
 	
-Explore contextual models for measuring bias
-	- Finetune ELMo/FLAIR?
+Lexicon Expansion:
+	- Extended the lexicon expansion to make it more interactive. A user select words, and travel the vector space in this dimension. The goals is to generate a comprehensive list of words related to a concept (i.e. "women"). This helped so far to distinguish distinctive categories of women words (family related, professional and artistic nouns)
+	- Visualized the process and results of the lexicon expansion.
+		- All women words plotted in a 2-dimensional space. Figure [here](./Notebooks/LexiconExpansion/fig/women_words_2d.png).
+		- Change of the "women"-axis after 10 iterations of annotation. Figure [here](./Notebooks/LexiconExpansion/fig/semaxis_movemnt.png).
+		- Women words in a 3-dimensional space after 10 iterations. Figure [here](./Notebooks/LexiconExpansion/fig/women_words_3d_iteration10.png).
+	- Code and results can be found in [this Notebook](./Notebooks/LexiconExpansion/Interactive-Lexicon-Expansion-SemAxis-Vis.ipynb)
