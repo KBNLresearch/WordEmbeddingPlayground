@@ -64,7 +64,7 @@ Focussed on interactive lexicon expansion, i.e. generating a lexicon based on on
 ` ('eminentie', 0.4629545211791992)]`
 
 ## Update 16 - 08
-### Theory
+### Theory
 
 - Started to compile historical literature on gender stereotypes. See [list](Literatuur.md)
 	
@@ -88,6 +88,6 @@ Final list can be found [here](./resources/Lijst_kranten_delpher_10jaar.xlsx)
 		
 		- Change of the "women"-axis after 10 iterations of annotation. Figure [here](./Notebooks/LexiconExpansion/fig/semaxis_movemnt.png).
 		
-		- Women words in a 3-dimensional space after 10 iterations. Figure [here](./Notebooks/LexiconExpansion/fig/women_words_3d_iteration10.png).
+		- Women words in a 3-dimensional space after 10 iterations. (Blue=selected, red=deselected) Figure [here](./Notebooks/LexiconExpansion/fig/women_words_3d_iteration10.png).
 		
 	- Code and results can be found in [this Notebook](./Notebooks/LexiconExpansion/Interactive-Lexicon-Expansion-SemAxis-Vis.ipynb)
