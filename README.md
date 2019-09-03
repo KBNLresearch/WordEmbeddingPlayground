@@ -102,11 +102,10 @@ Final list can be found [here](./resources/Lijst_kranten_delpher_10jaar.xlsx)
     
 ### Deep Contextual Embeddings
 
-- Made a notebook to explore contextual string embeddings, which can be found [here](./Notebooks/FLAIR/ContextVectors.ipynb). A visualisation, using TSNE, on the vector of representation of the word "vrouw" (in sentences that contain the string"de vrouw" ), can be found [here](./Notebooks/FLAIR/img/context_vectors.pdf).
+- Made a notebook to explore contextual string embeddings, which can be found [here](./Notebooks/FLAIR/ContextVectors.ipynb). A visualisation, using TSNE, on the vector of representation of the word "vrouw" (in sentences that contain the string"de vrouw" ), can be found [here](./Notebooks/FLAIR/img/context_vectors.pdf). A visualisation of the mean-pooled document embeddings can be found [here](./Notebooks/FLAIR/img/document_vectors.pdf)
 
 - Questions to explore further: 
       - What type of context do these vectors capture? Compare different vector representations of the same string.
-      - 
       - Impact of FineTurning
       - Choice of Model? (Flair vs BERT)
       - 
