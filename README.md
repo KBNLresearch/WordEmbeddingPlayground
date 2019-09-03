@@ -91,3 +91,22 @@ Final list can be found [here](./resources/Lijst_kranten_delpher_10jaar.xlsx)
 		- Women words in a 3-dimensional space after 10 iterations. (Blue=selected, red=deselected) Figure [here](./Notebooks/LexiconExpansion/fig/women_words_3d_iteration10.png).
 		
 	- Code and results can be found in [this Notebook](./Notebooks/LexiconExpansion/Interactive-Lexicon-Expansion-SemAxis-Vis.ipynb)
+
+## Update 23 - 08
+
+### Theory:
+- Reading articles on gender History, most notably:
+    - J. Dekker, Vrouw en opvoeding sinds de late negentiende eeuw
+    - J. Scott, Gender: A Useful Category of Historical Analysis
+    - S. Dudink, Multipurpose Masculinities
+    
+### Deep Contextual Embeddings
+
+- Made a notebook to explore contextual string embeddings, which can be found [here](./Notebooks/FLAIR/ContextVectors.ipynb). A visualisation, using TSNE, on the vector of representation of the word "vrouw" (in sentences that contain the string"de vrouw" ), can be found [here](./Notebooks/FLAIR/img/context_vectors.pdf).
+
+- Questions to explore further: 
+      - What type of context do these vectors capture? Compare different vector representations of the same string.
+      - 
+      - Impact of FineTurning
+      - Choice of Model? (Flair vs BERT)
+      - 
