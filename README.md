@@ -93,7 +93,6 @@ Final list can be found [here](./resources/Lijst_kranten_delpher_10jaar.xlsx)
 	- Code and results can be found in [this Notebook](./Notebooks/LexiconExpansion/Interactive-Lexicon-Expansion-SemAxis-Vis.ipynb)
 
 ## Update 23 - 08
-
 ### Theory:
 - Reading articles on gender History, most notably:
     - J. Dekker, Vrouw en opvoeding sinds de late negentiende eeuw
