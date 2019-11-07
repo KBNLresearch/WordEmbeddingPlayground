@@ -8,14 +8,6 @@ import re
 
 sent_detector = nltk.data.load('tokenizers/punkt/dutch.pickle')
 years_included = lambda x: set(irange(*tuple(map(int,re.findall('1[8-9][0-9]{2}', x)[-2:]))))
-#def process_sent(sent,tokenized=True):  
-#    sent = re.sub(r"([.,?!:;'\"])",r" \1 ",sent) # seperate punctuation from text
-#    sent = re.sub(r"[^A-Za-z\s]",r"",sent) # remove all non-alphatbetical characters
-#    sent = ' '.join(sent.lower().split()) # remove superfluous whitespaces
-    
-#    if tokenized:
-#        return sent.split()
-#    return sent
 
 def irange(start,stop):
     return range(start,stop+1)
@@ -92,21 +84,3 @@ class SentIterator(object):
                 for at in article_text:
                     for sent in sent_split(zipdata.read(at)):
                         yield preprocess_sent(sent,self._tokenized)
-
-
-#class SentIterator(object):
-#    def __init__(self,location,sample_docs=None,tokenized=True):
-#        self.location = location
-#        self.sample_docs = sample_docs
-#        self.tokenized = tokenized
-#        if sample_docs is None:
-#            self.sample_docs = -1
-#        
-#    def __iter__(self):
-#        with ZipFile(self.location, 'r') as zipdata:
-#            article_text = [f for f in zipdata.namelist() if f.endswith("articletext.xml")][:self.sample_docs]
-#            for at in article_text:
-#                for sent in sent_split(zipdata.read(at)):
-#                    yield preprocess_sent(sent,self.tokenized)
-        
-    
