@@ -53,7 +53,7 @@ def read_doc(zipdoc,path):
 
 class SentIterator(object):
 
-    def __init__(self,root,date_range=(1800,2000),sample_docs=None,tokenized=True,n_jobs=-1):
+    def __init__(self,root,date_range=(1800,2000),sample_docs=None,tokenized=True,processed_path='',n_jobs=-1):
         """Iterates over archive
         Arguments:
             root (string): folder where all the zip files are located
@@ -70,6 +70,7 @@ class SentIterator(object):
         self._tokenized = tokenized
         self._n_jobs = n_jobs
         self.count = None
+        self.processed_path = processed_path
         if self._sample_docs  is None:
             self._sample_docs = -1
 
@@ -85,6 +86,7 @@ class SentIterator(object):
         """Iterate over files: select all files within a specific date range
         """
         selected = self._select_zip_by_date_range()
+        print(selected)
         self.count = 0
         for file in selected: 
             with ZipFile(file, 'r') as zipdata:
@@ -112,23 +114,24 @@ class SentIterator(object):
         else:
             return self.count
     
-    def filter_lines(self,regex,name='_filterd'):
+    def filter_lines(self,regex,name='_filtered'):
         pattern = re.compile(regex)
-        in_sents = "../processed/{}-{}.txt".format(self._date_range[0],self._date_range[-1])
-        filtered_sents = "../processed/{}-{}-{}.txt".format(self._date_range[0],self._date_range[-1],name)
+        in_sents = "{}/{}-{}.txt".format(self.processed_path,self._date_range[0],self._date_range[-1])
+        filtered_sents = "{}/{}-{}-{}.txt".format(self.processed_path,self._date_range[0],self._date_range[-1],name)
         with open(in_sents,'r') as in_lines:
             with open(filtered_sents,'w') as out_lines:
                 for line in in_lines:
                     if pattern.findall(line):
                         out_lines.write(line+'\n')
+        return "{}/{}-{}-{}.txt".format(self.processed_path,self._date_range[0],self._date_range[-1],name)
 
                                 
     def prepareLines(self):
-        out_sents = "../processed/{}-{}.txt".format(self._date_range[0],self._date_range[-1])
-        if not os.path.isfile(out_sents):
+        out_sents = "{}/{}-{}.txt".format(self.processed_path,self._date_range[0],self._date_range[-1])
+        if not os.path.isfile(out_sents): # change again later
             print('Processing zip files')
             with open(out_sents,'w') as out_file:
-                for s in self._processZip():
+                 for s in self._processZip():
                     out_file.write(s + "\n")
         print('Zip files processed and stored in {}'.format(out_sents))
         #out_zip = "../data/processed/{}-{}.zip".format(self._date_range[0],self._date_range[-1])
@@ -137,7 +140,7 @@ class SentIterator(object):
         #os.remove(out_sents) 
             
     def __iter__(self):
-        in_sents = "../processed/{}-{}.txt".format(self._date_range[0],self._date_range[-1])
+        in_sents = "{}/{}-{}.txt".format(self.processed_path,self._date_range[0],self._date_range[-1])
         with open(in_sents,'r') as in_lines:
             for line in in_lines:
                 doc_id,tokens = line.split('<SEP>')
