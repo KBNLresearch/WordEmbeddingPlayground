@@ -40,9 +40,9 @@ update_sents = (preprocess_sent(t.text,t.doc_id)
                     for chunk in daily_articles
                         for i,t in chunk.iterrows())
 
-
+model_path ='../../../models/{0}-{1}.w2v.model'.format(START_YEAR,END_YEAR)
 # compute the bias scores of all sentences
-scores = Parallel(n_jobs=8)(delayed(compare_bias)(i,sent,p1,p2,target) for i,sent in tqdm(enumerate(update_sents)))
+scores = Parallel(n_jobs=8)(delayed(compare_bias)(i,sent,p1,p2,target,model_path) for i,sent in tqdm(enumerate(update_sents)))
 
 
 

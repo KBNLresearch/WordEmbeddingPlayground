@@ -1,7 +1,7 @@
 
 from gensim.models.word2vec import Word2Vec 
 
-def compare_bias(i,sent,p1,p2,target,model_path='../../../models/{0}-{1}.w2v.model'.format(START_YEAR,END_YEAR)):
+def compare_bias(i,sent,p1,p2,target,model_path):
     """function that compares the bias scores before and after updating the model weights.
     Arguments:
         i (int): row index # to do: improve here
