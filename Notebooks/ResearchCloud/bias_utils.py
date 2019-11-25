@@ -8,7 +8,7 @@ euclid_dist = lambda v1,v2: - np.linalg.norm(v1-v2,ord=2)
 average_vector = lambda words,model : np.mean([model.wv.__getitem__(w) for w in words if model.wv.__contains__(w)],axis=0)
 
 
-def compare_bias(i,sent,p1,p2,target,model_path):
+def compare_bias(i,sent,p1,p2,target,model_path,epoch=5):
     """function that compares the bias scores before and after updating the model weights.
     Arguments:
         i (int): row index # to do: improve here
@@ -21,7 +21,7 @@ def compare_bias(i,sent,p1,p2,target,model_path):
         
     """
     model = Word2Vec.load(model_path)
-    model.train([sent],total_examples=len([sent]),epochs=EPOCH)
+    model.train([sent],total_examples=len([sent]),epochs=epoch)
     orig_model = Word2Vec.load(model_path)
     return (i,sent,compute_bias(p1,p2,target,model) - compute_bias(p1,p2,target,orig_model))
 
