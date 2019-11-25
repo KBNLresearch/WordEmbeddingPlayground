@@ -34,17 +34,13 @@ euclid_dist = lambda v1,v2: - np.linalg.norm(v1-v2,ord=2)
 average_vector = lambda words,model : np.mean([model.wv.__getitem__(w) for w in words if model.wv.__contains__(w)],axis=0)
 
 
-daily_articles = #pd.read_csv('../../../processed/{}_{}-daily.csv'.format(START_YEAR,END_YEAR),chunksize=100)
+daily_articles = pd.read_csv('../../../processed/{}_{}-daily.csv'.format(START_YEAR,END_YEAR),chunksize=1000)
 
 
-#update_sents = (preprocess_sent(t.text,t.doc_id)
-#                    for chunk in daily_articles
-#                        for i,t in chunk.iterrows())
-
-update_sents_path = '../../../processed/{}_{}-daily.csv'.format(START_YEAR,END_YEAR)
-with open(update_sents_path,'r') 
 update_sents = (preprocess_sent(t.text,t.doc_id)
-                    for t in daily_articles)	
+                    for chunk in daily_articles
+                        for i,t in chunk.iterrows())
+
 
 model_path ='../../../models/{0}-{1}.w2v.model'.format(START_YEAR,END_YEAR)
 # compute the bias scores of all sentences
