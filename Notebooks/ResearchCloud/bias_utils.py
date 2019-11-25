@@ -1,5 +1,12 @@
 
 from gensim.models.word2vec import Word2Vec 
+from scipy.spatial.distance import cosine
+import numpy as np
+
+cosine_sim = lambda v1,v2: 1 - cosine(v1,v2) 
+euclid_dist = lambda v1,v2: - np.linalg.norm(v1-v2,ord=2)
+average_vector = lambda words,model : np.mean([model.wv.__getitem__(w) for w in words if model.wv.__contains__(w)],axis=0)
+
 
 def compare_bias(i,sent,p1,p2,target,model_path):
     """function that compares the bias scores before and after updating the model weights.
