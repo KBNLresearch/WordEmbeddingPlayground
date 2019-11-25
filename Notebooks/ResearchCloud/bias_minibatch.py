@@ -28,7 +28,7 @@ p1 = [w for w,v in model.wv.most_similar('vrouw',topn=20)] + ['vrouw']
 p2 = [w for w,v in model.wv.most_similar('man',topn=20)] + ['man']
 # target is the word child
 target = [w for w,v in model.wv.most_similar('kind',topn=20)] + ['kind']
-a
+
 cosine_sim = lambda v1,v2: 1 - cosine(v1,v2) 
 euclid_dist = lambda v1,v2: - np.linalg.norm(v1-v2,ord=2)
 average_vector = lambda words,model : np.mean([model.wv.__getitem__(w) for w in words if model.wv.__contains__(w)],axis=0)
