@@ -19,7 +19,6 @@ EPOCH = 4
 # Important: add learning rate!!
 
 
-daily_articles = pd.read_csv('../../../processed/{}_{}-daily.csv'.format(START_YEAR,END_YEAR),chunksize=100)
 
 # load model
 model = Word2Vec.load(MODEL_PATH)
@@ -35,14 +34,21 @@ euclid_dist = lambda v1,v2: - np.linalg.norm(v1-v2,ord=2)
 average_vector = lambda words,model : np.mean([model.wv.__getitem__(w) for w in words if model.wv.__contains__(w)],axis=0)
 
 
+daily_articles = #pd.read_csv('../../../processed/{}_{}-daily.csv'.format(START_YEAR,END_YEAR),chunksize=100)
 
+
+#update_sents = (preprocess_sent(t.text,t.doc_id)
+#                    for chunk in daily_articles
+#                        for i,t in chunk.iterrows())
+
+update_sents_path = '../../../processed/{}_{}-daily.csv'.format(START_YEAR,END_YEAR)
+with open(update_sents_path,'r') 
 update_sents = (preprocess_sent(t.text,t.doc_id)
-                    for chunk in daily_articles
-                        for i,t in chunk.iterrows())
+                    for t in daily_articles)	
 
 model_path ='../../../models/{0}-{1}.w2v.model'.format(START_YEAR,END_YEAR)
 # compute the bias scores of all sentences
-scores = Parallel(n_jobs=8)(delayed(compare_bias)(i,sent,p1,p2,target,model_path) for i,sent in tqdm(enumerate(update_sents)))
+scores = Parallel(n_jobs=-1, backend='threading')(delayed(compare_bias)(i,sent,p1,p2,target,model_path) for i,sent in tqdm(enumerate(update_sents)))
 
 
 
