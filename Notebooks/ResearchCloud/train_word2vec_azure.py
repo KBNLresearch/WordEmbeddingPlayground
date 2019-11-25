@@ -11,11 +11,11 @@ EPOCH = 4
 SEED = 42
 
 START_YEAR = 1850
-END_YEAR = 1875
+END_YEAR = 1890
 ROOT = "/home/kaspar/ResearchDrive"
 OUTPUT = "/home/kaspar/models/{}-{}.w2v.model".format(START_YEAR,END_YEAR)
 
-sentences = SentIterator(ROOT,date_range=(START_YEAR,END_YEAR),processed_path='/home/kaspar/processed',tokenized=False,n_jobs=-1)
+sentences = SentIterator(ROOT,date_range=(START_YEAR,END_YEAR),processed_path='/home/kaspar/processed',tokenized=False,n_jobs=8)
 sentences.prepareLines()
 
 model = Word2Vec(size=SIZE, window=WINDOW, min_count=MIN_COUNT, workers=WORKERS, seed=SEED)
