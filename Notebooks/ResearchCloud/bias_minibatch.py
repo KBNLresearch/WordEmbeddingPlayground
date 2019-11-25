@@ -6,6 +6,7 @@ from tqdm import tqdm
 from scipy.spatial.distance import cosine
 from glob import glob
 import pickle
+from bias_utils import *
 from utils_parallel import *
 
 START_YEAR = 1860
