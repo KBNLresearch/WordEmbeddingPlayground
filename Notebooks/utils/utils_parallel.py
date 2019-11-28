@@ -97,7 +97,7 @@ class SentIterator(object):
                 
                 article_text = Parallel(n_jobs=self._n_jobs)(delayed(read_doc)(zipdoc,f) for (zipdoc,f) in article_text)
                 
-                print(len(article_text))
+                #print(len(article_text))
                 for sent,doc_id in Parallel(n_jobs=self._n_jobs)(delayed(preprocess_sent)(at,doc_id,tokenized=False) 
                                     for at,doc_id in article_text):
                     self.count+=1
@@ -118,9 +118,9 @@ class SentIterator(object):
                 
                 article_text = [read_doc(zipdoc,f) for zipdoc,f in article_text]
                 
-                print(len(article_text))
+                #print(len(article_text))
                 for at,doc_id in article_text:
-                    sent,doc_id = preprocess_sent(at,doc_id,tokenized=False):
+                    sent,doc_id = preprocess_sent(at,doc_id,tokenized=False)
                     self.count+=1
                     yield doc_id+"<SEP>"+sent
        
