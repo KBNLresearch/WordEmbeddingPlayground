@@ -1,8 +1,8 @@
 import sys
-sys.path.append('../utils')
+sys.path.append('../')
+from utils import *
 from gensim.models.word2vec import Word2Vec 
 import logging
-from utils_parallel import *
 logging.basicConfig(format='%(asctime)s : %(levelname)s : %(message)s', level=logging.INFO)
 
 SIZE = 300
@@ -12,8 +12,8 @@ WORKERS = 8
 EPOCH = 4
 SEED = 42
 
-START_YEAR = 1850
-END_YEAR = 1860
+START_YEAR = 1851
+END_YEAR = 1853
 ROOT = "../../../Data/ResearchDrive"
 SENT_OUTPUT = "../../../Processed/Sentences"
 MODEL_OUTPUT = "../../../Processed/Models/{}-{}.w2v.model".format(START_YEAR,END_YEAR)

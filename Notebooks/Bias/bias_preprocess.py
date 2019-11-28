@@ -1,7 +1,6 @@
 import sys
-sys.path.append('../utils')
-from bias_utils import *
-from utils_parallel import *
+sys.path.append('..')
+from utils import *
 from glob import glob
 import pandas as pd
 

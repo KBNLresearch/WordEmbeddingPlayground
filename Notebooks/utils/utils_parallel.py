@@ -15,7 +15,7 @@ years_included = lambda x: set(irange(*tuple(map(int,re.findall('1[8-9][0-9]{2}'
 def irange(start,stop):
     return range(start,stop+1)
 
-def preprocess_sent(sent,sent_id,tokenized=True):
+def preprocess_sent(sent,sent_id=None,tokenized=True): # check if setting sent_id to None effects anything?
     # Credits: Kasra Hosseini and Kaspar Beelen
     # --- replace .- and . in the middle of the word
     sent = re.sub(r'(?<=\w)(\.-)(?=\w)', '-', sent)
@@ -82,7 +82,7 @@ class SentIterator(object):
     
     
     
-    def _processZip(self):
+    def _processZipParallel(self):
         """Iterate over files: select all files within a specific date range
         """
         selected = self._select_zip_by_date_range()
@@ -100,6 +100,27 @@ class SentIterator(object):
                 print(len(article_text))
                 for sent,doc_id in Parallel(n_jobs=self._n_jobs)(delayed(preprocess_sent)(at,doc_id,tokenized=False) 
                                     for at,doc_id in article_text):
+                    self.count+=1
+                    yield doc_id+"<SEP>"+sent
+
+    def _processZip(self):
+        """Iterate over files: select all files within a specific date range
+        """
+        selected = self._select_zip_by_date_range()
+        print(selected)
+        self.count = 0
+        for file in selected: 
+            with ZipFile(file, 'r') as zipdata:
+                
+                article_text = [(zipdata.read(f),f) for f in zipdata.namelist() 
+                                        if f.endswith(".xml") and int(re.findall(r"/([0-9]{4})/",'/' + f)[0]) 
+                                            in set(self._date_range)]
+                
+                article_text = [read_doc(zipdoc,f) for zipdoc,f in article_text]
+                
+                print(len(article_text))
+                for at,doc_id in article_text:
+                    sent,doc_id = preprocess_sent(at,doc_id,tokenized=False):
                     self.count+=1
                     yield doc_id+"<SEP>"+sent
        
