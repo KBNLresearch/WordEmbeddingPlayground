@@ -67,8 +67,8 @@ class SentIterator(object):
             tokenized (boolean): defines whether the preprocessing includes tokenization
         """
         self.root = root
-        self._files = glob('{}/*.zip'.format(self.root))
-        self._path2year = {f:years_included(f) for f in self._files }
+        self._zip_files = glob('{}/*.zip'.format(self.root))
+        self._path2year = {f:years_included(f) for f in self._zip_files }
         self._date_range = irange(*date_range)
         self._sample_docs = sample_docs
         self._tokenized = tokenized
@@ -79,7 +79,7 @@ class SentIterator(object):
             self._sample_docs = -1
 
 
-    def _select_by_date_range(self):
+    def _select_zip_by_date_range(self):
         """Select zip files based on date range
         """
         return set(k for k,v in self._path2year.items() if set(self._date_range).intersection(v))
@@ -136,6 +136,11 @@ class SentIterator(object):
             return self.count
     
     def filter_lines(self,regex,name='filtered'):
+        """filter lines whose content match a give regular expression
+        Arguments:
+            regex (regular expression): regular expression used find words in the content of an article
+            name (string): extension that mark the seperated content
+        """
         pattern = re.compile(regex)
         in_sents = "{}/{}-{}.txt".format(self.processed_path,self._date_range[0],self._date_range[-1])
         out_sents = "{}/{}-{}_{}.txt".format(self.processed_path,self._date_range[0],self._date_range[-1],name)
@@ -157,9 +162,14 @@ class SentIterator(object):
         print('Zip files processed and stored in {}'.format(out_sents))
             
     def __iter__(self):
-        in_sents = "{}/{}-{}.txt".format(self.processed_path,self._date_range[0],self._date_range[-1])
-        with open(in_sents,'r') as in_lines:
-            for line in in_lines:
-                doc_id,tokens = line.split('<SEP>')
-                yield tokens.split()
+        """for a given year range, iterate over txt files
+        and yield article content
+        
+        """
+        for year in self._date_range:
+            in_sents = "{}/{}-{}.txt".format(self.processed_path,year,year)
+            with open(in_sents,'r') as in_lines:
+                for line in in_lines:
+                    doc_id,tokens = line.split('<SEP>')
+                    yield tokens.split()
         
