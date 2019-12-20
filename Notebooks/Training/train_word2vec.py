@@ -3,6 +3,7 @@ sys.path.append('../')
 from utils import utils_train,bias_utils
 from gensim.models.word2vec import Word2Vec 
 import logging
+import pandas as pd
 logging.basicConfig(format='%(asctime)s : %(levelname)s : %(message)s', level=logging.INFO)
 
 SIZE = 300
@@ -12,11 +13,16 @@ WORKERS = 16
 EPOCH = 4
 SEED = 42
 
-START_YEAR = 1850
-END_YEAR = 1860
+df = pd.read_excel("../../resources/Lijst_kranten_delpher_10jaar_incl_verspreidingsgebied.xlsx",sheet_name="Sheet1")
+PPN_NAME = "Landelijk"
+PPN = df[(df["Verspreidingsgebied"]==PPN_NAME) & (~df["PPN"].isnull())].PPN
+
+
+START_YEAR = 1830
+END_YEAR = 1839
 ROOT = "/data/ResearchDrive"
 SENT_OUTPUT = "/data/Processed/Sentences"
-MODEL_OUTPUT = "/data/Processed/Models/{}-{}.w2v.model".format(START_YEAR,END_YEAR)
+MODEL_OUTPUT = "/data/Processed/Models/{}-{}-{}.w2v.model".format(START_YEAR,END_YEAR,PPN_NAME)
 
 sentences = utils_train.SentIterator(ROOT,date_range=(START_YEAR,END_YEAR),processed_path=SENT_OUTPUT,tokenized=False,n_jobs=8)
 #sentences.prepareLines()

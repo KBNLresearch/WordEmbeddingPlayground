@@ -41,7 +41,9 @@ def preprocess_sent(sent,sent_id=None,tokenized=True): # check if setting sent_
     return sent,sent_id
 
 def read_doc(zipdoc,path):
-    doc_id = path.split('/')[-1].rstrip('.xml')
+    file_id = path.split('/')[-1].rstrip('.xml')
+    ppn = path.split('/')[-2]
+    doc_id = f'{ppn}<SEP>{file_id}'
     try:
         text = etree.tostring(
             etree.parse(
@@ -57,7 +59,7 @@ def read_doc(zipdoc,path):
 
 class SentIterator(object):
 
-    def __init__(self,root,date_range=(1800,2000),sample_docs=None,tokenized=True,processed_path='',n_jobs=-1):
+    def __init__(self,root,date_range=(1800,2000),sample_docs=None,tokenized=True,processed_path='',ppn=None,n_jobs=-1):
         """Iterates over archive
         Arguments:
             root (string): folder where all the zip files are located
@@ -74,6 +76,7 @@ class SentIterator(object):
         self._tokenized = tokenized
         self._n_jobs = n_jobs
         self.count = None
+        self.ppn = ppn
         self.processed_path = processed_path
         if self._sample_docs  is None:
             self._sample_docs = -1
@@ -170,6 +173,10 @@ class SentIterator(object):
             in_sents = "{}/{}-{}.txt".format(self.processed_path,year,year)
             with open(in_sents,'r') as in_lines:
                 for line in in_lines:
-                    doc_id,tokens = line.split('<SEP>')
-                    yield tokens.split()
+                    ppn,file_id,tokens = line.split('<SEP>')
+                    if self.ppn:
+                        if ppn in self.ppn:
+                            yield tokens.split()
+                    else:
+                        yield tokens.split()
         
