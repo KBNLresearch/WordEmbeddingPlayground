@@ -23,7 +23,7 @@ Word2Vec is een krachtig hulpmiddel voor veel AI-toepassingen (kijk naar het aan
 
 Deze bevinding genereerde een stroom artikelen die sociale voorkeur in modellen voor het insluiten van woorden verkennen. Terwijl (Bolukbasi et al., 2016) zich concentreerden op 'debiasing' inbedding (om verspreiding van de stereotypen naar andere AI-frameworks te voorkomen), gebruikten andere artikelen bias een sociaal signaal, als een lens op de maatschappij en geschiedenis. (Caliskan et al., 2017) demonstreerden rigoureus het bestaan ​​van mensachtige vooroordelen in WEM's, door stereotypen afgeleid van WEM's te vergelijken met die verkregen uit geaccepteerde psychologische tests (zoals de Implicit Association Test).
 
-## Verwachte uitkomsten: bias als historisch signaal
+## Verwachte uitkomsten: bias als historisch signaal
 
 Dit project breidt deze inzichten uit tot het domein van de geschiedenis, ervan uitgaande dat als woordinbedding getrainde hedendaagse gegevens hedendaagse vooroordelen repliceren, hetzelfde geldt voor het verleden.
 
@@ -38,7 +38,7 @@ In navolging van de krant (Garg et al. 2018) - en meer recentelijk (Wevers, 2019
 - Ten derde willen we, naast het monitoren van de verandering in bias op macroschaal (dat wil zeggen per decennium), begrijpen waar de bias eigenlijk vandaan komt (Brunet et al., 2019), dwz welke artikelen, kranten, acteurs of debatten zijn toegenomen op verminderde de bias? In die zin heeft ons onderzoek een fijnmazig begrip van de circulatie van vertekening in tijd en ruimte.
 
 
-## References
+## References
 
 Bolukbasi, Tolga, Kai-Wei Chang, James Y. Zou, Venkatesh Saligrama, and Adam T. Kalai. "Man is to computer programmer as woman is to homemaker? debiasing word embeddings." In Advances in neural information processing systems, pp. 4349-4357. 2016.
 
