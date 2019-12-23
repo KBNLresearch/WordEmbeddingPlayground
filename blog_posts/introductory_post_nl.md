@@ -23,7 +23,7 @@ Word2Vec is een krachtig hulpmiddel voor veel AI-toepassingen (kijk naar het aan
 
 Deze bevinding genereerde een stroom artikelen die sociale voorkeur in modellen voor het insluiten van woorden verkennen. Terwijl (Bolukbasi et al., 2016) zich concentreerden op 'debiasing' inbedding (om verspreiding van de stereotypen naar andere AI-frameworks te voorkomen), gebruikten andere artikelen bias een sociaal signaal, als een lens op de maatschappij en geschiedenis. (Caliskan et al., 2017) demonstreerden rigoureus het bestaan ​​van mensachtige vooroordelen in WEM's, door stereotypen afgeleid van WEM's te vergelijken met die verkregen uit geaccepteerde psychologische tests (zoals de Implicit Association Test).
 
-Verwachte uitgangen: bias als historisch signaal
+## Verwachte uitkomsten: bias als historisch signaal
 
 Dit project breidt deze inzichten uit tot het domein van de geschiedenis, ervan uitgaande dat als woordinbedding getrainde hedendaagse gegevens hedendaagse vooroordelen repliceren, hetzelfde geldt voor het verleden.
 
