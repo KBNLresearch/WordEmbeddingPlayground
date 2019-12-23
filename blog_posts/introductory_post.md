@@ -1,4 +1,4 @@
-## Introduction: How newspaper construct "men" and "women"
+## Introduction: How newspaper construct "men" and "women"
 
 "Why girls smile and boys don't cry" investigates gender bias in Dutch historical newspapers. It uses computational techniques to detect stereotypes in the portrayal of "men" and "women" during the 19th and 20th century. 
 
@@ -36,7 +36,7 @@ Following the paper (Garg et al,. 2018)--and more recently by (Wevers, 2019)--we
 
 - Thirdly, besides monitoring the change in bias on a macro-scale (i.e. by decade), we want to understand where the bias actually comes from  (Brunet et al., 2019), i.e. which articles, newspapers, actors or debates increased on decreased the bias? In this sense, our research a fine-grained understanding of the circulation of bias over time and space. 
 
-## References
+## References
 
 Bolukbasi, Tolga, Kai-Wei Chang, James Y. Zou, Venkatesh Saligrama, and Adam T. Kalai. "Man is to computer programmer as woman is to homemaker? debiasing word embeddings." In Advances in neural information processing systems, pp. 4349-4357. 2016.
 
