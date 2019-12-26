@@ -1,4 +1,3 @@
-**[onder constructie, niet publiceren]**
 ## Inleiding: hoe kranten 'mannen' en 'vrouwen' verbeelden
 
 "Waarom meisjes glimlachen en jongens niet huilen" onderzoekt genderstereotypering in Nederlandse historische kranten. Het project maakt gebruik van computationele technieken om de stereotype weergave van "mannen" en "vrouwen" in de 19e en 20e eeuw te analyseren.
