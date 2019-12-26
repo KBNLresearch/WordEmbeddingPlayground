@@ -20,7 +20,7 @@ The baseline here is that Word2Vec  generates an constellation of words in a vec
 
 Word2Vec has been a power tool for many AI applications (look at Google Scholar's citation count to convince yourself). However, Seminal work by (Bolukbasi et al., 2016) demonstrated that it tends to produce "blatantly sexist" embeddings, in which, for example, women are associated with profession as "nurse" and  "receptionists" and men with "meastro" or "philosopher". 
 
-This finding that generated a stream of articles exploring social bias in word embedding models. While (Bolukbasi et al., 2016) focused on “debiasing” embeddings (as to prevent propagation of the stereotypes to other AI frameworks) other papers leveraged bias a social signal, as a lens on society and history. (Caliskan et al., 2017) rigorously demonstrated the existence of human-like biases in WEMs, comparing stereotypes derived from WEMs to those obtained from accepted psychological tests (such as the Implicit Association Test). 
+This finding that generated a stream of articles exploring social bias in word embedding models. While (Bolukbasi et al., 2016) focused on “debiasing” embeddings (as to prevent propagation of the stereotypes to other AI frameworks) other papers leveraged bias a social signal, as a lens on society. (Caliskan et al., 2017) rigorously demonstrated the existence of human-like biases in WEMs, comparing stereotypes derived from WEMs to those obtained from accepted psychological tests (such as the Implicit Association Test). 
 
 ## Anticipated Outputs: Bias as Historical Signal
 
