@@ -1,4 +1,4 @@
-## Introduction: How newspaper depict "men" and "women"
+## Introduction: How newspaper depict "women" and "men"
 
 "Why girls smile and boys don't cry" investigates gender bias in Dutch historical newspapers. It uses computational techniques to detect stereotypes in the portrayal of "men" and "women" during the 19th and 20th century. 
 
