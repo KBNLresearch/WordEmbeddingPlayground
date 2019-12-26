@@ -16,6 +16,9 @@ The risk here is that AI propagates offline inequalities to the online realm. Th
 
 To explain this in more detail, let's turn to the example of word embeddings models (WEMs), which are a set of algorithms that learn associations between word based on co-occurence in texts. A popular model dating from 2013 is Word2Vec, which basically creates a semantic space (think of a cube as a three dimension vector space, defined by x,y and z axes), and pushes words that tend to co-occur (within a certain context) close to each other, while separating others. I am cutting corners here, for a proper introduction to Word2Vec for Digital Humanities please read this [blog post](http://bookworm.benschmidt.org/posts/2015-10-25-Word-Embeddings.html) of Ben Schmidt.
 
+
+![Voorbeeld van een drie-dimensionale word embedding ruimte](./figures/figuur1_en.png)
+
 The baseline here is that Word2Vec  generates an constellation of words in a vector space (i.e. it "embeds" words in a space), which allows researchers to subsequently  compute how similar two words are ("cat" is closer to "dog" than to "stone", as the former share many contexts as opposed to the latter).
 
 Word2Vec has been a power tool for many AI applications (look at Google Scholar's citation count to convince yourself). However, Seminal work by (Bolukbasi et al., 2016) demonstrated that it tends to produce "blatantly sexist" embeddings, in which, for example, women are associated with profession as "nurse" and  "receptionists" and men with "meastro" or "philosopher". 
