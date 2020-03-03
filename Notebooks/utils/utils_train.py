@@ -76,7 +76,10 @@ class SentIterator(object):
         self._tokenized = tokenized
         self._n_jobs = n_jobs
         self.count = None
-        self.ppn = ppn
+        if ppn:
+            self.ppn = list(map(str,ppn))
+        else:
+            self.ppn = ppn
         self.processed_path = processed_path
         if self._sample_docs  is None:
             self._sample_docs = -1
@@ -145,8 +148,8 @@ class SentIterator(object):
             name (string): extension that mark the seperated content
         """
         pattern = re.compile(regex)
-        in_sents = "{}/{}-{}.txt".format(self.processed_path,self._date_range[0],self._date_range[-1])
-        out_sents = "{}/{}-{}_{}.txt".format(self.processed_path,self._date_range[0],self._date_range[-1],name)
+        in_sents = "{}/{}.txt".format(self.processed_path,self._date_range[0])
+        out_sents = "{}/{}_{}.txt".format(self.processed_path,self._date_range[0],name)
         with open(in_sents,'r') as in_lines:
             with open(out_sents,'w') as out_lines:
                 for line in in_lines:
@@ -156,11 +159,12 @@ class SentIterator(object):
 
                                 
     def prepareLines(self):
-        out_sents = "{}/{}-{}.txt".format(self.processed_path,self._date_range[0],self._date_range[-1])
+        #for year in self._date_range:
+        out_sents = "{}/{}.txt".format(self.processed_path,self._date_range[0])
         if not os.path.isfile(out_sents): # change again later
             print('Processing zip files')
             with open(out_sents,'w') as out_file:
-                 for s in self._processZip():
+                for s in self._processZip():
                     out_file.write(s + "\n")
         print('Zip files processed and stored in {}'.format(out_sents))
             
@@ -170,7 +174,7 @@ class SentIterator(object):
         
         """
         for year in self._date_range:
-            in_sents = "{}/{}-{}.txt".format(self.processed_path,year,year)
+            in_sents = "{}/{}.txt".format(self.processed_path,year)
             with open(in_sents,'r') as in_lines:
                 for line in in_lines:
                     ppn,file_id,tokens = line.split('<SEP>')
