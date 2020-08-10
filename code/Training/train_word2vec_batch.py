@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+__author__ = "Kaspar Beelen"
 import sys
 sys.path.append('../')
 from utils import utils_train,bias_utils
@@ -19,15 +21,17 @@ WORKERS = 8
 EPOCH = 4
 SEED = 42
 
-# training parameters
-TRAIN_START = 1840
-TRAIN_END = 1890
+# training data parameters
+TRAIN_START = 1850
+TRAIN_END = 1910
 TRAIN_STEP = 10
 TRAIN_WINDOW = 20
 
 # contextual paramaters
-FACETS = "Verspreidingsgebied"
+
+#FACETS = "Verspreidingsgebied"
 #FACETS = "Provincie"
+FACETS = "Politek"
 meta_df = pd.read_excel(METADATA_PATH,sheet_name="Sheet1")
 
 
