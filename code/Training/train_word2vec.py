@@ -1,37 +1,44 @@
+#!/usr/bin/env python
+__author__ = "Kaspar Beelen"
 import sys
 sys.path.append('../')
 from utils import utils_train,bias_utils
-from gensim.models.word2vec import Word2Vec 
+from gensim.models.word2vec import Word2Vec
 import logging
 import pandas as pd
 logging.basicConfig(format='%(asctime)s : %(levelname)s : %(message)s', level=logging.INFO)
 
+# paths
+ROOT = "/kbdata/ResearchDrive"
+SENT_OUTPUT = "/kbdata/Processed/Sentences"
+METADATA_PATH = "../../resources/Lijst_kranten_final.xlsx"
+
+# model hyperparameter
 SIZE = 300
 WINDOW = 20
-MIN_COUNT = 10
-WORKERS = 16
+MIN_COUNT = 100
+WORKERS = 8
 EPOCH = 4
 SEED = 42
 
-df = pd.read_excel("../../resources/Lijst_kranten_delpher_10jaar_incl_verspreidingsgebied.xlsx",sheet_name="Sheet1")
-PPN_NAME = "Landelijk"
-PPN = df[(df["Verspreidingsgebied"]==PPN_NAME) & (~df["PPN"].isnull())].PPN
+# training data parameters
+TRAIN_START = 1800
+TRAIN_END = 1909
 
 
-START_YEAR = 1830
-END_YEAR = 1839
-ROOT = "/data/ResearchDrive"
-SENT_OUTPUT = "/data/Processed/Sentences"
-MODEL_OUTPUT = "/data/Processed/Models/{}-{}-{}.w2v.model".format(START_YEAR,END_YEAR,PPN_NAME)
-
-sentences = utils_train.SentIterator(ROOT,date_range=(START_YEAR,END_YEAR),processed_path=SENT_OUTPUT,tokenized=False,n_jobs=8)
-#sentences.prepareLines()
-
+print(f'Training model--from {TRAIN_START} to {TRAIN_END}')
+sentences = utils_train.SentIterator(ROOT,date_range=(TRAIN_START,TRAIN_END),
+                                            processed_path=SENT_OUTPUT,
+                                            tokenized=False,
+                                            n_jobs=WORKERS)
+print('Initialing model and vocabulary')
 model = Word2Vec(size=SIZE, window=WINDOW, min_count=MIN_COUNT, workers=WORKERS, seed=SEED)
 model.build_vocab(sentences=sentences)
+    
 total_examples = model.corpus_count
-print(total_examples)
-
+print(f"\n-------\nTotal number examples = {total_examples}\n-------\n")
+     
 model.train(sentences=sentences, total_examples=total_examples, epochs=EPOCH)
-
+MODEL_OUTPUT = f"/kbdata/Processed/Models/BaseModel-{TRAIN_START}-{TRAIN_END}.w2v.model"
 model.save(MODEL_OUTPUT)
+print(f'Saved model to {MODEL_OUTPUT}')

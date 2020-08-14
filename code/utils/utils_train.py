@@ -31,7 +31,7 @@ def preprocess_sent(sent: str,sent_id:str='',tokenized: bool=True) -> Union[list
     sent = re.sub(r'(?<=\w)(\.-)(?=\w)', '-', sent)
     sent = re.sub(r'(?<=\w)(\.)(?=\w)', '', sent)
     # --- remove accent
-    #sent = unidecode.unidecode(sent)
+    sent = unidecode.unidecode(sent)
     # --- remove 2 or more .
     sent = re.sub(r'[.]{2,}', '.', sent)
     # --- add a space before and after a list of punctuations
@@ -55,6 +55,7 @@ def read_doc(zipdoc,path:str) -> tuple:
     Arguments:
         zipdoc (element of ziparchive object?): ??
         path (str) : file path
+    Returns a tuple with text and ppn<SEP>file_id
     """
     # extract file idx from file path
     file_id = path.split('/')[-1].rstrip('.xml')
@@ -115,15 +116,12 @@ class SentIterator(object):
         self.ppn = ppn
         self.processed_path = processed_path
         
-
     def _select_zip_by_date_range(self):
         """Select zip files based on date range.
         Returns:
             set of path to zip files relevant for the selected data range
         """
         return set(k for k,v in self._path2year.items() if set(self._date_range).intersection(v))
-    
-    
     
     def _processZipParallel(self):
         """Iterate over files: select all files within a specific date range.
@@ -141,7 +139,7 @@ class SentIterator(object):
                 # if the first sequenace of four integers, surrounded by '/' is in the set of included years (defined by _date_range)
                 #  ## Need to check if this works
                 article_text = [(zipdata.read(f),f) for f in zipdata.namelist() 
-                                        if f.endswith(".xml") and int(re.findall(r"/([0-9]{4})/",'/' + f)[0]) 
+                                        if f.endswith(".xml") and int(re.findall(r"/(1[0-9]{3})/",'/' + f)[0]) 
                                             in set(self._date_range)]
                 
                 # read the XML files 
@@ -154,27 +152,6 @@ class SentIterator(object):
                     self.count+=1
                     yield doc_id+"<SEP>"+sent
 
-    #def _processZip(self):
-    #    """Iterate over files: select all files within a specific date range
-    #    """
-    #    selected = self._select_zip_by_date_range()
-    #    print(selected)
-    #    self.count = 0
-    #    for file in selected: 
-    #        with ZipFile(file, 'r') as zipdata:
-    #            
-    #            article_text = [(zipdata.read(f),f) for f in zipdata.namelist() 
-    #                                    if f.endswith(".xml") and int(re.findall(r"/([0-9]{4})/",'/' + f)[0]) 
-    #                                        in set(self._date_range)]
-    #            
-    #            article_text = [read_doc(zipdoc,f) for zipdoc,f in article_text]
-    #            
-    #            #print(len(article_text))
-    #            for at,doc_id in article_text:
-    #                sent,doc_id = preprocess_sent(at,doc_id,tokenized=False)
-    #                self.count+=1
-    #                yield doc_id+"<SEP>"+sent
-       
         
     def __len__(self):
         """Number of elements processed
@@ -185,7 +162,42 @@ class SentIterator(object):
             return 'Iterate over corpus first'
         else:
             return self.count
+
+    def __iter__(self):
+        """for a given year range, iterate over txt files
+        and yield article content
+        
+        """
+        for year in self._date_range:
+            #print(year)
+            in_sents = "{}/{}.txt".format(self.processed_path,year)
+            if os.path.isfile(in_sents):
+                with open(in_sents,'r') as in_lines:
+                    for line in in_lines:
+                        ppn,file_id,tokens = line.split('<SEP>')
+                        # if a set of ppns were selected, check these otherwise return all lines
+                        if self.ppn:
+                            if ppn in self.ppn:
+                                yield tokens.split()
+                        else:
+                            yield tokens.split()
     
+                                
+    def prepareLines(self):
+        """Save processed sentences in one text by year for selected date range 
+        Check first if file doesn't alread exist.
+        """
+        out_sents = "{}/{}.txt".format(self.processed_path,self._date_range[0])
+        if not os.path.isfile(out_sents): # change again later
+            print('Processing zip files')
+            with open(out_sents,'w') as out_file:
+                 for s in self._processZipParallel():
+                    out_file.write(s + "\n")
+        
+        print('Zip files processed and stored in {}'.format(out_sents))
+            
+
+
     def filter_lines(self,regex: str,name: str='filtered'):
         """filter lines whose content match a give regular expression
         Arguments:
@@ -206,33 +218,4 @@ class SentIterator(object):
                     if pattern.findall(line):
                         out_lines.write(line+'\n')
         return out_sents
-
-                                
-    def prepareLines(self):
-        """save sentences for selected date range in a txt file
-        Check first if file doesn't alread exist.
-        """
-        out_sents = "{}/{}-{}.txt".format(self.processed_path,self._date_range[0],self._date_range[-1])
-        if not os.path.isfile(out_sents): # change again later
-            print('Processing zip files')
-            with open(out_sents,'w') as out_file:
-                 for s in self._processZip():
-                    out_file.write(s + "\n")
-        print('Zip files processed and stored in {}'.format(out_sents))
-            
-    def __iter__(self):
-        """for a given year range, iterate over txt files
-        and yield article content
-        
-        """
-        for year in self._date_range:
-            in_sents = "{}/{}-{}.txt".format(self.processed_path,year,year)
-            with open(in_sents,'r') as in_lines:
-                for line in in_lines:
-                    ppn,file_id,tokens = line.split('<SEP>')
-                    if self.ppn:
-                        if ppn in self.ppn:
-                            yield tokens.split()
-                    else:
-                        yield tokens.split()
         

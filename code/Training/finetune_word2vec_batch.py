@@ -22,9 +22,9 @@ EPOCH = 4
 SEED = 42
 
 # training data parameters
-TRAIN_START = 1840
+TRAIN_START = 1870
 TRAIN_END = 1909
-TRAIN_STEP = 5
+TRAIN_STEP = 10
 TRAIN_WINDOW = 20
 
 # contextual paramaters
@@ -32,6 +32,10 @@ FACETS =  "Politek" # "Verspreidingsgebied" |  "Provincie" | "Politek"
 
 meta_df = pd.read_excel(METADATA_PATH,sheet_name="Sheet1",index_col=0)
 meta_df["PPN"] = meta_df["PPN"].astype(str)
+
+# finetuning parameters
+
+BASE_MODEL = ""
 
 
 for FACET,PPN in meta_df.groupby(FACETS)['PPN'].apply(list).items():
@@ -44,13 +48,12 @@ for FACET,PPN in meta_df.groupby(FACETS)['PPN'].apply(list).items():
                                             ppn=PPN,tokenized=False,
                                             n_jobs=WORKERS)
         print('Initialing model and vocabulary')
-        model = Word2Vec(size=SIZE, window=WINDOW, min_count=MIN_COUNT, workers=WORKERS, seed=SEED)
-        model.build_vocab(sentences=sentences)
-    
-        total_examples = model.corpus_count
+        model = Word2Vec.load("/kbdata/Processed/Models/BaseModel-1800-1909.w2v.model")
+        #model.build_vocab(sentences=sentences)
+        total_examples = model.corpus_count#len([i for i in sentences.__iter__()])
         print(f"\n-------\nTotal number examples = {total_examples}\n-------\n")
         if not total_examples: continue
-        model.train(sentences=sentences, total_examples=total_examples, epochs=EPOCH)
-        MODEL_OUTPUT = "/kbdata/Processed/Models/{}-{}-{}.w2v.model".format(START_YEAR,START_YEAR + TRAIN_WINDOW,FACET.replace('/','_'))
+        model.train(sentences=sentences, total_examples=total_examples, epochs=EPOCH,) # total_examples=total_examples,
+        MODEL_OUTPUT = "/kbdata/Processed/FT-Models/FT-{}-{}-{}.w2v.model".format(START_YEAR,START_YEAR + TRAIN_WINDOW,FACET.replace('/','_'))
         model.save(MODEL_OUTPUT)
         print(f'Saved model to {MODEL_OUTPUT}')
