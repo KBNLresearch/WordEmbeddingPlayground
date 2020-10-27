@@ -10,40 +10,7 @@ from matplotlib import pyplot as plt
 from scipy.stats import entropy
 from scipy.special import softmax
 
-sampling_options = {'average': {
-                        'method': average_all },
-                    
-                    'query_tokens': {
-                        'method': query_tokens,
-                        'args' : {
-                            "tokens" : [],
-                            "merge" : False }
-                                    },
-                    
-                    'random': {
-                        'method': random_sample,
-                        'args': {
-                            "cutoff": 5 }
-                                    },
-                   
-                   'entropy': {
-                       'method': entropy_sample,
-                        'args': {
-                            'topn':2,
-                            'init_vec': core_init,
-                            'reverse': True}
-                                    },
-                   
-                   'distance' : {
-                       'method': distance_sample,
-                        'args': {
-                            'topn': 5,
-                            'method': cosine,
-                            'init_vec': None,
-                            'reverse': True
-                                        }
-                                    }
-                                }
+
 
 
 
@@ -262,3 +229,39 @@ def plot_2d(log,model,figsize=None,include_neighbours=False):
     
     
     return plt.show()
+
+
+sampling_options = {'average': {
+                        'method': average_all },
+                    
+                    'query_tokens': {
+                        'method': query_tokens,
+                        'args' : {
+                            "tokens" : [],
+                            "merge" : False }
+                                    },
+                    
+                    'random': {
+                        'method': random_sample,
+                        'args': {
+                            "cutoff": 5 }
+                                    },
+                   
+#                    'entropy': {
+#                        'method': entropy_sample,
+#                         'args': {
+#                             'topn':2,
+#                             'init_vec': core_init,
+#                             'reverse': True}
+#                                     },
+                   
+                   'distance' : {
+                       'method': distance_sample,
+                        'args': {
+                            'topn': 5,
+                            'method': cosine,
+                            'init_vec': None,
+                            'reverse': True
+                                        }
+                                    }
+                                }
