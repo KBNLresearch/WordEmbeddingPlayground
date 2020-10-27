@@ -71,7 +71,7 @@ The last hyperparamater is `FACETS`. This allows you to add another dimension to
 
 ## Exploring Embeddings
 
-Code for exploring vector spaces. See the lexicon expansion [README](../LexiconExpansion/README.md) for more information.
+Code for exploring vector spaces. See the lexicon expansion [README](https://github.com/kasparvonbeelen/WordEmbeddingPlayground/tree/master/code/LexiconExpansion/README.md) for more information.
 
 ## Bias 
 
