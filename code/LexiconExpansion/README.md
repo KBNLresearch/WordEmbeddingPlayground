@@ -32,4 +32,4 @@ The expansion consists of several iteration of annotations, updating the query v
 - Plot the lexicon and surround words
 - Save lexicon
 
-[Annotation Procedure](./img/annotation.gif)
+![Annotation Procedure](https://github.com/kasparvonbeelen/WordEmbeddingPlayground/blob/master/code/LexiconExpansion/img/annotation.gif)
