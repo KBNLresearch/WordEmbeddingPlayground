@@ -39,9 +39,9 @@ SENT_OUTPUT = "/path/to/processed/data"
 METADATA_PATH = "../../resources/Lijst_kranten_final.xlsx"
 ```
 
-Next, define the model hyperparameters. More information can be found in the gensim documentation.
+Next, define the model hyperparameters. More information can be found in the [gensim documentation](https://radimrehurek.com/gensim/models/word2vec.html).
 
-```
+```python
 # model hyperparameter
 SIZE = 300 # size of word vector
 WINDOW = 20 # window size 
@@ -50,3 +50,30 @@ WORKERS = 8 # use n number of cores
 EPOCH = 4 # train for n epochs
 SEED = 42
 ```
+
+
+After setting the model hyperparameters, define the training routine, which moves as a sliding window over a selected date range..
+The first step entials setting a time range, i.e. the period for which to generate Word2Vec models. `TRAIN_START` and `TRAIN_END` are the first and last year. `TRAIN_WINDOW` refers to number of years included in each step, `TRAIN_STEP` sets the step size. For the parameters selected below, the train routine will start at 1840, train a model for the period 1840-1860, and then move the window with five years to 1845-1865 etc.
+
+```python
+# training data hyperparameters
+TRAIN_START = 1840
+TRAIN_END = 1909
+TRAIN_STEP = 5
+TRAIN_WINDOW = 20
+```
+
+The last hyperparamater is `FACETS`. This allows you to add another dimension to the training routine (besides time). These facets refer to colums in the metadata file, and you can easily change the cell values, or simply add another column, depending on your research question. The standard options are: 
+
+- Politek: Political leaning of the newspaper;
+- Verspreidingsgebied: Indicates whether this is a national or regional newspaper;
+- Provincie: The province in which the newspaper is published.
+
+## Exploring Embeddings
+
+Code for exploring vector spaces. See the lexicon expansion [README](../LexiconExpansion/README.md) for more information.
+
+## Bias 
+
+
+Inspect bias over different Word2Vec model. See the bias README for more information.
