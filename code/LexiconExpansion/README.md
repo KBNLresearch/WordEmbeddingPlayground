@@ -27,9 +27,11 @@ sampling_procedure = sampling_options['average']
 
 
 The expansion consists of several iteration of annotations, updating the query vector, and inspecting the results. The process is exemplified by the screencast below. The different steps are:
-- Annotate
-- Update lexicon with annotations
-- Plot the lexicon and surround words
-- Save lexicon
+- Select seed words (1.1)
+- Select Sampling strategy (1.2.1)
+- Annotate: `Core` words will be added to lexicon and influence contribute to constructing the query vector. `Peripheral` words will be saved but don't influence the sample. (1.2.2)
+- Update lexicon with annotations (1.2.3)
+- Plot the lexicon and surround words (1.3)
+- Save lexicon (1.4)
 
 ![Annotation Procedure](https://github.com/kasparvonbeelen/WordEmbeddingPlayground/blob/master/code/LexiconExpansion/img/annotation.gif)
