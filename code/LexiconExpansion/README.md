@@ -12,7 +12,7 @@ Please consult the notebook for more information and instruction. The README onl
 
 ## Unidirectional Expansion
 
-This method allows you to explore the region around a couple of selected seed word. For example, in the notebook we selected the words "vrouw" (woman) and "moeder" (mother) to start querying for female words in the vector space.
+This method allows you to explore the region around a set of selected seed word. For example, in the notebook we selected the words "vrouw" (woman) and "moeder" (mother) to start querying for female words in the vector space.
 
 ```python
 core = {'vrouw','moeder'} # select seed words
@@ -35,9 +35,11 @@ The expansion consists of several iteration of annotations, updating the query v
 - Save lexicon (1.4)
 
 
-### Screencast of expansion
+### Screencast of expansion
+
 ![Annotation Procedure](https://github.com/kasparvonbeelen/WordEmbeddingPlayground/blob/master/code/LexiconExpansion/img/annotation.gif)
 
 ## Constrastive Expansion
+
 
 
