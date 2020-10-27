@@ -20,3 +20,8 @@ core_init = average_vector(core.copy(),model) # average the vector representati
 ```
 
 After specifying the seed words, you need to select a **sampling strategy** which defines how we will navigate the vector space. Here we use the simple `average` procedure, which simply looks at the words currently in the lexicon `L`, and explores the area surroundig `avg(v(L))` the avarage of the vector representation of the word in `L`.
+
+```python
+sampling_procedure = sampling_options['average']
+```
+

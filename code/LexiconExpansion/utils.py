@@ -247,13 +247,13 @@ sampling_options = {'average': {
                             "cutoff": 5 }
                                     },
                    
-#                    'entropy': {
-#                        'method': entropy_sample,
-#                         'args': {
-#                             'topn':2,
-#                             'init_vec': core_init,
-#                             'reverse': True}
-#                                     },
+                   'entropy': {
+                       'method': entropy_sample,
+                        'args': {
+                            'topn':2,
+                            'init_vec': None,
+                            'reverse': True}
+                                    },
                    
                    'distance' : {
                        'method': distance_sample,
