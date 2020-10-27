@@ -25,3 +25,28 @@ Then run
 ```bash
 python prep_sentences_batch.py
 ```
+
+This will produce one large `.txt` file for each year, with one (processed) newspaper article per line. For inspecting, the exact procedure for processing the text files, please consult the `preprocess_sent` function in `utils_train.py`.
+
+After preprocessing data, you can train a batch of embedding models on the newspapers. Below we show how to train Word2Vec models in batch, but the same procedure applies to creating FastText models. 
+
+`train_word2vec_batch.py` is the main workhorse. Before running it, adjust the hyperparamters listed below. The `METADATA_PATH` refers to excel file in the `resources` folder, which provides information on the political leaning, publication and circulation of newspapers.
+
+```python
+# paths
+ROOT = "/path/to/root/folder" # 
+SENT_OUTPUT = "/path/to/processed/data"
+METADATA_PATH = "../../resources/Lijst_kranten_final.xlsx"
+```
+
+Next, define the model hyperparameters. More information can be found in the gensim documentation.
+
+```
+# model hyperparameter
+SIZE = 300 # size of word vector
+WINDOW = 20 # window size 
+MIN_COUNT = 10 # remove words that appear less than n time
+WORKERS = 8 # use n number of cores
+EPOCH = 4 # train for n epochs
+SEED = 42
+```
