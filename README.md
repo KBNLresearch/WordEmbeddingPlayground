@@ -69,11 +69,13 @@ The last hyperparamater is `FACETS`. This allows you to add another dimension to
 - Verspreidingsgebied: Indicates whether this is a national or regional newspaper;
 - Provincie: The province in which the newspaper is published.
 
-## Exploring Embeddings
+
+
+## Exploring word embedings
 
 Code for exploring vector spaces. See the lexicon expansion [README](https://github.com/kasparvonbeelen/WordEmbeddingPlayground/tree/master/code/LexiconExpansion/README.md) for more information.
 
 ## Bias 
 
 
-Inspect bias over different Word2Vec model. See the bias README for more information.
+Inspect bias over different Word2Vec model. See the bias [README](https://github.com/kasparvonbeelen/WordEmbeddingPlayground/tree/master/code/Bias/README.md) for more information.
