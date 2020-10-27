@@ -86,4 +86,4 @@ Code for exploring vector spaces. See the lexicon expansion [README](https://git
 
 ## Bias 
 
-Inspect bias over different Word2Vec models. See the bias [README](https://github.com/kasparvonbeelen/WordEmbeddingPlayground/tree/master/code/Bias/README.md) for more information.
+Inspect bias over different Word2Vec model. See the bias [README](https://github.com/kasparvonbeelen/WordEmbeddingPlayground/tree/master/code/Bias/README.md) for more information.
