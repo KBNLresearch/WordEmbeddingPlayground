@@ -25,4 +25,11 @@ After specifying the seed words, you need to select a **sampling strategy** whic
 sampling_procedure = sampling_options['average']
 ```
 
-Then the expansion consists of several iteration of annotations, updating the query vector, and inspecting the results. The process is exemplified by the screencast below.
+
+The expansion consists of several iteration of annotations, updating the query vector, and inspecting the results. The process is exemplified by the screencast below. The different steps are:
+- Annotate
+- Update lexicon with annotations
+- Plot the lexicon and surround words
+- Save lexicon
+
+[Annotation Procedure](../figures/annotation.gif)
