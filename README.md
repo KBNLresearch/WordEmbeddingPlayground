@@ -1,3 +1,10 @@
+<p align="center">
+    <a href="https://github.com/Living-with-machines/DeezyMatch/blob/master/LICENSE">
+        <img alt="License" src="https://img.shields.io/badge/License-MIT-yellow.svg">
+    </a>
+    <br/>
+</p>
+
 # Word embedding playground
 Code created during KB Research in Residence project "Why girls smile and boys don't cry.". This repository provides tools for training and fine-tuning word embeddings (Word2Vec and FastText) on a selected subset of Dutch Newspapers available in Delpher. It also provides tools for exploring diachronic embeddings along the dimension of political leaning and place.
 
