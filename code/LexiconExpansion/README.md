@@ -65,7 +65,7 @@ The annotation options are similar to the unidirectional expansio, with exceptio
 
 ### Screencast of contrastive expansion
 
-.
+![Annotation Procedure](./img/annotation-2.gif)
 
 ## Expansion with Active Learning
 
