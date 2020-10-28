@@ -1,4 +1,4 @@
-# Lexicon Expansion Instruction
+# Lexicon Expansion Instructions
 
 The Lexicon Expansion code allows you to create word list by systematically navigating embedding spaces. It provides functions to explore vector spaces and create word lists that track some kind of underlying concepts.
 
