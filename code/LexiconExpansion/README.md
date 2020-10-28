@@ -39,7 +39,3 @@ The expansion consists of several iteration of annotations, updating the query v
 
 ![Annotation Procedure](https://github.com/kasparvonbeelen/WordEmbeddingPlayground/blob/master/code/LexiconExpansion/img/annotation.gif)
 
-## Constrastive Expansion
-
-
-
