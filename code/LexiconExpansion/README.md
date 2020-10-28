@@ -69,10 +69,10 @@ The annotation options are similar to the unidirectional expansio, with exceptio
 ![Annotation Procedure](./img/annotation-2.gif)
 
 The screencast comprises the following stages:
-- Set seed word lists (2.2):
-- Annotate words (2.3.1):
-- Add annotations to the lexicons (2.3.2):
-- Save annotations (2.4):
+- Set seed word lists (2.2): Select the two opposite ends for contrastive lexicons you want to create. The `Core` and `Anitode` serves as two contrastive "feminine" and "masculine" word lists.
+- Annotate words (2.3.1): Assign sampled words to a either `Core` or `Antipode` lexicon. This section consist of two rounds of annotation, the first one focussed on `Core` words, the second one on `Antipode` words.
+- Add annotations to the lexicons (2.3.2): Run these cells to update the lexicon, and inspects to words harvested so far.
+- Save annotations (2.4): Save the output for later analysis.
 
 ## Expansion with Active Learning
 
