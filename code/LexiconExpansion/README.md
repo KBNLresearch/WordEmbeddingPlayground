@@ -44,7 +44,8 @@ The different steps are:
 
 The expansion normally consists of multiple iterations. The figure below plots the of multiple annotation rounds that aimed to harvest different words referring to women in newspapers.
 
-![Lexicon Expansion Results](./img/lexexpresults.png =100x250)
+
+<img src="./img/lexexpresults.png" width="200"/>
 
 ## Contrastive Expansion
 
