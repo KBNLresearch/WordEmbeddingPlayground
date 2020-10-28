@@ -1,6 +1,8 @@
 # Lexicon Expansion Instruction
 
-The Lexicon Expansion code allows you to create word list by systematically navigating embedding spaces. All code is available via the `LexiconExpansion.ipynb` Make sure that you have installed `ipyannotate` before annotation.
+The Lexicon Expansion code allows you to create word list by systematically navigating embedding spaces. It provides functions to explore vector spaces and create word lists that track some kind of underlying concepts.
+
+All code is available via the `LexiconExpansion.ipynb` Make sure that you have installed `ipyannotate` before annotation.
 
 Lexicon Expansion contains three different methods for navigating word embeddings, which are explained in more detail below.
 
@@ -27,7 +29,7 @@ sampling_procedure = sampling_options['average']
 
 The expansion consists of several iteration of annotations, updating the query vector, and inspecting the results. The process is exemplified by the screencast below. 
 
-### Screencast of expansion
+### Screencast of unidirectional expansion
 
 ![Annotation Procedure](https://github.com/kasparvonbeelen/WordEmbeddingPlayground/blob/master/code/LexiconExpansion/img/annotation.gif)
 
@@ -43,4 +45,23 @@ The different steps are:
 The expansion normally consists of multiple iterations. The figure below plots the of multiple annotation rounds that aimed to harvest different words referring to women in newspapers.
 
 ![Lexicon Expansion Results](./img/lexexpresults.png)
+
+## Contrastive Expansion
+
+Where unidirection expansion explores a specific area of a vector space, the contrastive expansion allows you investigate a (laten) dimension. This can be useful to seperate separate antynyms from synonyms, when creating an emotion dictionary. Or find words that are most similar to female words **and** most dissimilar to male words. 
+
+The procedure is largely the same, with some small exceptions.
+
+```python
+core = {'vrouw','vrouwen'}
+antipode = {'man','mannen'}
+```
+
+Instead of one seed word list, you have to define two, each of them representing opposite "ends" of the dimension you want to explore. In our case, because we were interested feminity and masculinity in newspapers, we simply select "woman" and "man" as seed words representing the opposite point of the dimension we want to investigate.
+
+Selection of seed words are followed by two annotation rounds, one that explores words closest to the `Core` end of the spectrum, and the opposite, most `Antipode` words.
+
+The annotation options are similar to the unidirectional expansio, with exception of the `Antipode` button, which assign words to the `Antipode` lexicon.
+
+### Screencast of contrastive expansion
 
