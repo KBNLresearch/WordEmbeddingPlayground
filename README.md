@@ -8,13 +8,18 @@
 
 
 # Word embedding playground
-Code created during KB Research in Residence project "Why girls smile and boys don't cry.". This repository provides tools for training and fine-tuning word embeddings (Word2Vec and FastText) on a selected subset of Dutch Newspapers available in Delpher. It also provides tools for exploring diachronic embeddings along the dimension of political leaning and place.
 
-The code in this repository allows you to train word embedding models, explore their content and analyse bias. The main README focusses in training word embedding models, but to read more about the interactive **lexicon expansion** go [here](./code/LexiconExpansion/README.md), the code for **analysing bias** is explained [here](.code/Bias/README.md).
+Code created during KB Research in Residence project "Why girls smile and boys don't cry". This repository provides tools for **training and fine-tuning word embedding models** (Word2Vec and FastText) on a selected subset of Dutch Newspapers available in Delpher. 
+
+It also comes with various functions to explore the trained embeddings. **Lexicon expansion**, allows you to "travel through a vector space" and interactively create a lexicon of conceptually related words in the process. In the **Bias** folder, you find various tools for analysing bias over time and other dimensions such as political leaning and place.
+
+[Training WEM Models](#training-models)
+[Lexicon Expansion](#explore-word-embedings)
+[Analyse bias](#analyse-bias)
 
 
 
-## Training
+## Training models
 
 These scripts provide function for training Word2Vec and FastText models, either individually or in batch. The first step requires proprecessing the zipped newspaper data, which is handled by the `prep_sentences_batch.py` script.
 
@@ -82,10 +87,11 @@ The last hyperparamater is `FACETS`. This allows you to add another dimension to
 
 
 
-## Exploring word embedings
+## Explore word embedings
 
-Code for exploring vector spaces. See the lexicon expansion [README](https://github.com/kasparvonbeelen/WordEmbeddingPlayground/tree/master/code/LexiconExpansion/README.md) for more information.
+To read more about the interactive **lexicon expansion** go [here](./code/LexiconExpansion/README.md) for more information.
 
-## Bias 
 
-Inspect bias over different Word2Vec model. See the bias [README](https://github.com/kasparvonbeelen/WordEmbeddingPlayground/tree/master/code/Bias/README.md) for more information.
+## Analyse bias 
+
+Inspect bias over different Word2Vec model. See the bias [README](./code/Bias/README.md) for more information.
