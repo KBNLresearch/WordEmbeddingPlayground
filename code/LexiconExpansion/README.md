@@ -7,8 +7,8 @@ All code is available via the `LexiconExpansion.ipynb` Make sure that you have i
 Lexicon Expansion contains three different methods for navigating word embeddings, which are explained in more detail below.
 
 - [Unidirectional Expansion](#unidirectional-expansion)
-- Contrastive Expansion
-- Expansion with Active Learning
+- [Contrastive Expansion](#contrastive-expansion)
+- [Expansion with Active Learning](#expansion-with-active-learning)
 
 Please consult the notebook for more information and instruction. The README only gives a consice overview of the expansion procedure and results.
 
@@ -65,3 +65,8 @@ The annotation options are similar to the unidirectional expansio, with exceptio
 
 ### Screencast of contrastive expansion
 
+.
+
+## Expansion with Active Learning
+
+Coming soon.
