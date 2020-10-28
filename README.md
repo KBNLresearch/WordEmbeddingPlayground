@@ -13,9 +13,9 @@ Code created during KB Research in Residence project "Why girls smile and boys d
 
 It also comes with various functions to explore the trained embeddings. **Lexicon expansion**, allows you to "travel through a vector space" and interactively create a lexicon of conceptually related words in the process. In the **Bias** folder, you find various tools for analysing bias over time and other dimensions such as political leaning and place.
 
-[Training WEM Models](#training-models)
-[Lexicon Expansion](#explore-word-embedings)
-[Analyse bias](#analyse-bias)
+- [Training WEM Models](#training-models)
+- [Lexicon Expansion](#explore-word-embedings)
+- [Analyse bias](#analyse-bias)
 
 
 
@@ -86,11 +86,24 @@ The last hyperparamater is `FACETS`. This allows you to add another dimension to
 - Provincie: The province in which the newspaper is published.
 
 
-
 ## Explore word embedings
 
-To read more about the interactive **lexicon expansion** go [here](./code/LexiconExpansion/README.md) for more information.
+Lexicon expansion provides some functionality to interactively explore (i.e. travel through) word vector spaces. The screencast gives a quick overview of the process, but more function are availble in this [Notebook](./code/LexiconExpansion/LexiconExpansion.ipynb). To read more about the interactive lexicon expansion go [here](./code/LexiconExpansion/README.md) for more information.
 
+
+
+![Annotation Procedure](./code/LexiconExpansion/img/annotation.gif)
+
+
+The different steps covered in the screencast are:
+- Select seed words: in this case we chose "vrouw" and "vrouwen" as the seed query
+- Select Sampling strategy: : `"average"` selects the simplest method which samples the closest neighbours to the query vector, other option are `"query_tokens"`, `"entropy"` and `"distance"`.
+- Annotate: `Core` words will be added to lexicon and influence constructing the query vector. `Peripheral` words will be saved but don't influence the sampling. In this scenario I added unambiguously "female" words to the `Core` lexicon and OCR variants to the `Peripheral` word list. These words are saved, in case they are need later. I ignored For all other words (`Ignore`)
+- Update lexicon with annotations: the next code blocks, updated the lexicon with the annotations. You can now go back to the previous step to harvest more words (but don't forget to save afterwards!) or you can plot the results.
+- Plot the lexicon and surround words: the visualisation plots all the selected words on a 2D plane. The re
+- Save lexicon: save the results of the annotation process for later use.
+
+The expansion normally consists of multiple iterations. The figure below plots the of multiple annotation rounds that aimed to harvest different words referring to women in newspapers.
 
 ## Analyse bias 
 
