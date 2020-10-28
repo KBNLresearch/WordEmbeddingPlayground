@@ -6,7 +6,7 @@ All code is available via the `LexiconExpansion.ipynb` Make sure that you have i
 
 Lexicon Expansion contains three different methods for navigating word embeddings, which are explained in more detail below.
 
-- Unidirectional Expansion
+- [Unidirectional Expansion](#unidirectional-expansion)
 - Contrastive Expansion
 - Expansion with Active Learning
 
