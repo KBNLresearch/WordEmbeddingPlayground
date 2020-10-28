@@ -31,7 +31,7 @@ The expansion consists of several iteration of annotations, updating the query v
 
 ### Screencast of unidirectional expansion
 
-![Annotation Procedure](https://github.com/kasparvonbeelen/WordEmbeddingPlayground/blob/master/code/LexiconExpansion/img/annotation.gif)
+![Annotation Procedure](./img/annotation.gif)
 
 
 The different steps are:
@@ -68,6 +68,12 @@ The annotation options are similar to the unidirectional expansio, with exceptio
 
 ![Annotation Procedure](./img/annotation-2.gif)
 
+The screencast comprises the following stages:
+- Set seed word lists (2.2):
+- Annotate words (2.3.1):
+- Add annotations to the lexicons (2.3.2):
+- Save annotations (2.4):
+
 ## Expansion with Active Learning
 
-Coming soon.
+Code available, documentation coming soon.
