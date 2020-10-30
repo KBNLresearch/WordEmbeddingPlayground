@@ -17,7 +17,7 @@ def irange(start,stop):
     """inclusive range: includes the stop element"""
     return range(start,stop+1)
 
-def preprocess_sent(sent: str,sent_id:str='',tokenized: bool=True) -> Union[list,str]: # check if setting sent_id to None effects anything?
+def preprocess_sent(sent: str,sent_id:str='',tokenized: bool=True) -> Union[list,str]: # check if setting sent_id to None effects anything?
     """preprocessing function for formatting raw text before training word2vec
     # Credits: Kasra Hosseini and Kaspar Beelen
     Arguments:
@@ -107,7 +107,7 @@ class SentIterator(object):
         self._path2year = {f:years_included(f) for f in self._zip_files }
         # define year range (inclding the last year)
         self._date_range = irange(*date_range)
-        # for testing purposes only use first n years
+        # for testing purposes only use first n years
         self._sample_docs = sample_docs
         self._tokenized = tokenized
         self._n_jobs = n_jobs
@@ -128,7 +128,7 @@ class SentIterator(object):
         Returns:
             a string separated by a <SEP> token.
         """
-        # select relevant zip files
+        # select relevant zip files
         selected = self._select_zip_by_date_range()
         print(selected)
         self.count = 0
@@ -206,7 +206,7 @@ class SentIterator(object):
         Returns:
             path (string) to filtered lines
         """
-        # compile regular expression
+        # compile regular expression
         pattern = re.compile(regex)
         # path to input sentences
         in_sents = "{}/{}-{}.txt".format(self.processed_path,self._date_range[0],self._date_range[-1])
