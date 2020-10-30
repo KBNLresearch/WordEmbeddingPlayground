@@ -6,6 +6,7 @@ from collections import defaultdict
 from collections import OrderedDict
 from scipy.spatial.distance import cosine, euclidean
 from sklearn.manifold import TSNE
+from gensim.models.word2vec import Word2Vec
 from matplotlib import pyplot as plt
 from scipy.stats import entropy
 from scipy.special import softmax
@@ -14,7 +15,7 @@ from scipy.special import softmax
 
 
 
-def expand_lexicon(core,model,method,args={}):
+def expand_lexicon(core: set,model:Word2Vec,method:str,args={}) -> dict:
     """Core function for lexicon expansion. Defines the procedure 
     for generating words to create the average vector. 
     Essentially defines the area that will be explored, and the variability.
