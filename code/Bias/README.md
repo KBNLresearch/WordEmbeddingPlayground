@@ -15,7 +15,7 @@ katholiek_models = select_model_by_facet_value('Katholiek',root=root)
 You can inspect how bias changes over time, comparing the evolution for different facets
 
 
-1[Bias over time](./img/bias_img1.png)
+![Bias over time](./img/bias_fig1.png)
 
 
 ## Inspecting bias scores
