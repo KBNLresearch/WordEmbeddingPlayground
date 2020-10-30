@@ -24,7 +24,7 @@ Besides these timelines, you can zoom in on a specific year, and inspect the wor
 
 ### Plot distribution 
 
-![Bias over time](./img/bias_img1.png)
+![Bias over time](./img/bias_fig2.png)
 
 
 ### Rank words
