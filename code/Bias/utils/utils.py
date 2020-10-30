@@ -30,9 +30,10 @@ average_vector = lambda words,model : np.mean([model.wv.__getitem__(w) for w in 
 
 def inspect_bias(p1: list, p2: list, target:list, model: Word2Vec, 
                  metric: Callable[[list,list],float] = cosine_sim) -> tuple:
-    """compute bias score for two word lists that represent the dimension
-    for which we want to calculate the bias. Target is concept for which
-    we want to compute bias.
+    """this function allows you to inspect which terms have high bias scores
+    applied to gender, it shows which men and women have a hight bias score for
+    a given list of target words. the function maps each word in p1 and p2 to 
+    a bias score comp
     Arguments:
         p1 (list): word list for first pole
         p2 (list): word list for the second pole
@@ -40,7 +41,8 @@ def inspect_bias(p1: list, p2: list, target:list, model: Word2Vec,
         model (gensim.models.word2vec.Word2Vec): a word2vec model
         metric (function): a similarity metric
     Returns:
-        a tuple
+        a tuple with containing two dictionaries (for p1 and p2). each d
+        dictionary maps indidividual words to the their bias scores
     """
     p1 = [p for p in p1 if  model.wv.__contains__(p)]
     p2 = [p for p in p2 if  model.wv.__contains__(p)]
@@ -48,9 +50,9 @@ def inspect_bias(p1: list, p2: list, target:list, model: Word2Vec,
     p1_scores, p2_scores = defaultdict(float),defaultdict(float)
     for t in target:
         for p in p1:
-            p1_scores[(p,target[0])] += metric(model.wv.__getitem__(p),model.wv.__getitem__(t))
+            p1_scores[p] += metric(model.wv.__getitem__(p),model.wv.__getitem__(t))
         for p in p2:
-            p2_scores[(p,target[0])] += metric(model.wv.__getitem__(p),model.wv.__getitem__(t))
+            p2_scores[p] += metric(model.wv.__getitem__(p),model.wv.__getitem__(t)) # target[0]
     return (p1_scores,p2_scores)
 
 def compute_bias_average_vector(p1: list, p2: list, target:list, model: Word2Vec,
@@ -75,7 +77,11 @@ def compute_bias(p1: list, p2: list, target:list, model: Word2Vec,
                                 metric:Callable[[list,list],float] = cosine_sim) -> float:
     
     """
-    ??
+    Given two word lists that capture the bias dimension (e.g. gender male vs female) and
+    a target word list (the concept for which we want to calculate the gender bias 
+    (e.g. words related to emotion) this function returns a bias score by comparing
+    the similarity between each target word with each of the pole words. The bias score 
+    is the difference between averaged similarity scores for each pole. 
     Arguments:
         p1 (list): list of pole words
         p2 (list): lost of pole words
@@ -83,6 +89,7 @@ def compute_bias(p1: list, p2: list, target:list, model: Word2Vec,
         model (gensim.models.word2vec.Word2Vec): a word2vec model
         metric (funtion): distance function, either cosine or euclidean
     Returns:
+        bias score as float
     """
     p1 = [p for p in p1 if  model.wv.__contains__(p)]
     p2 = [p for p in p2 if  model.wv.__contains__(p)]
